@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction History</h1>
+    <table>
+        <tr>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>BMI</th>
+            <th>Children</th>
+            <th>Smoker</th>
+            <th>Region</th>
+            <th>Predicted Charges</th>
+        </tr>
+        {% for r in records %}
+        <tr>
+            <td>{{ r.age }}</td>
+            <td>{{ r.gender }}</td>
+            <td>{{ r.bmi }}</td>
+            <td>{{ r.children }}</td>
+            <td>{{ r.smoker }}</td>
+            <td>{{ r.region }}</td>
+            <td>{{ "%.2f"|format(r.predicted_charges) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
